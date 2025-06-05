@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+     body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: #fff;
+            padding-bottom: 2rem;
+        }
+
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    color: white;
+}
+
+.navbar .brand {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #ffcc70;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        padding: 1rem 0;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .menu.active {
+        display: flex;
+    }
+}
+
+        h2 {
+            text-align: center;
+            margin-top: 2rem;
+            color: #ffe;
+        }
+
+        .galeri {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .galeri img {
+            width: 100%;
+            border-radius: 0.75rem;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .galeri img:hover {
+            transform: scale(1.05);
+        }
+
+        p {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        a {
+            color: #ffcc70;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ffdcae;
+        }
+
+        hr {
+            width: 80%;
+            border: none;
+            border-top: 2px solid rgba(255,255,255,0.2);
+            margin: 2rem auto;
+        }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erbejee Trainz</title>
+    
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="brand">Erbejee Trainz</div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <div class="menu" id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="skin.html">Skin</a>
+            <a href="route.html">Route</a>
+            <a href="sosmed.html">Sosmed</a>
+        </div>
+    </nav>
+
+    <hr />
+    <h2>Rute</h2>
+<div class="galeri">
+    <img src="img/r1.jpg" alt="gambar1" />
+    <img src="img/r2.jpg" alt="gambar2" />
+    <img src="img/r3.jpg" alt="gambar3" />
+    <img src="img/r4.jpg" alt="gambar4" />
+    <img src="img/r5.jpg" alt="gambar5" />
+</div>
+<p><a href="link">Rute Area Fiksi</a></p>
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('navMenu');
+        menu.classList.toggle('active');
+    }
+</script>
+</body>

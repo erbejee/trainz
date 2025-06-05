@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    color: white;
+}
+
+.navbar .brand {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-right: 2rem;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.menu a {
+    padding: 0.3rem 0;
+    display: inline-block;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #ffcc70;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        padding: 1rem 0;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .menu.active {
+        display: flex;
+    }
+}
+
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        header img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 1rem 0 0.5rem;
+        }
+
+        header p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        hr {
+            width: 80%;
+            border: none;
+            border-top: 2px solid rgba(255,255,255,0.2);
+            margin: 2rem auto;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erbejee Trainz</title>
+    
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="brand">Erbejee Trainz</div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <div class="menu" id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="skin.html">Skin</a>
+            <a href="route.html">Route</a>
+            <a href="sosmed.html">Sosmed</a>
+        </div>
+    </nav>
+
+    <hr />
+
+    <header style="text-align: center;">
+        <img src="img/pp.jpg" width="200" height="200" style="border-radius: 50%;"/>
+        <h1>Erbejee</h1>
+        <p>Selamat datang di website channel Erbejee, disini menyediakan skin dan route 
+            Trainz Simulator Android
+        </p>
+    </header>
+
+    <hr />
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erbejee Trainz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: #fff;
+            padding-bottom: 2rem;
+        }
+
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    color: white;
+}
+
+.navbar .brand {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #ffcc70;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        padding: 1rem 0;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .menu.active {
+        display: flex;
+    }
+}
+
+        h2 {
+            text-align: center;
+            margin-top: 2rem;
+            color: #ffe;
+        }
+
+        .sosmed-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .sosmed-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .sosmed-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .sosmed-card img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .sosmed-card a {
+            color: #ffcc70;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .sosmed-card a:hover {
+            color: #ffdcae;
+        }
+
+        hr {
+            width: 80%;
+            border: none;
+            border-top: 2px solid rgba(255,255,255,0.2);
+            margin: 2rem auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand">Erbejee Trainz</div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <div class="menu" id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="skin.html">Skin</a>
+            <a href="route.html">Route</a>
+            <a href="sosmed.html">Sosmed</a>
+        </div>
+    </nav>
+
+    <hr />
+
+    <h2>Ikuti saya</h2>
+
+    <div class="sosmed-container">
+        <div class="sosmed-card">
+            <img src="img/ytb.png" alt="YouTube" />
+            <div>YouTube</div>
+            <a href="https://www.youtube.com/@erbejeee" target="_blank">@erbejee</a>
+        </div>
+        <div class="sosmed-card">
+            <img src="img/tt.png" alt="TikTok" />
+            <div>TikTok</div>
+            <a href="https://www.tiktok.com/@erbejee" target="_blank">@erbejeee</a>
+        </div>
+        <div class="sosmed-card">
+            <img src="img/ig.jpg" alt="Instagram" />
+            <div>Instagram</div>
+            <a href="https://www.instagram.com/erbejee" target="_blank">@erbejeee</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
