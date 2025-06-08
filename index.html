@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+    
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #1f1c2c, #928dab);
+        color: #fff;
+    }
+    
+    body {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    
+    body.loaded {
+        opacity: 1;
+    }
+    
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(10px);
+        z-index: 100;
+        color: white;
+        position: relative;
+    }
+    
+    .navbar .brand {
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+ 
+    .menu-toggle {
+        display: none;
+        font-size: 1.8rem;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    
+    .menu {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+    
+    .menu a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 0;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    
+    .menu a:hover {
+        color: #ffcc70;
+    }
+    
+    @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 1.5rem;
+        top: 1.2rem;
+    }
+    
+    .menu {
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 200px;
+        padding: 1rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 1000;
+        border-bottom-left-radius: 1rem;
+    }
+    
+    .menu.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    }
+    
+    header {
+        text-align: center;
+        padding: 3rem 1rem;
+    }
+    
+    header img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 5px solid #fff;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+    
+    header h1 {
+        font-size: 2.5rem;
+        margin: 1rem 0 0.5rem;
+    }
+    
+    header p {
+        max-width: 600px;
+        margin: 0 auto;
+        font-weight: 300;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+    
+    hr {
+        width: 80%;
+        border: none;
+        border-top: 2px solid rgba(255,255,255,0.2);
+        margin: 2rem auto;
+    }
+    
+    #loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #1f1c2c;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.3s ease;
+    }
+    
+    .spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #fff;
+        border-top: 5px solid #ffcc70;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+    to { transform: rotate(360deg); }
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erbejee Trainz</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<div id="loader">
+    <div class="spinner"></div>
+</div>
+
+    <nav class="navbar">
+        <div class="brand">Erbejee Trainz</div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+                <div class="menu" id="navMenu">
+                    <a href="index.html">Home</a>
+                    <a href="skin.html">Skin</a>
+                    <a href="route.html">Route</a>
+                    <a href="sosmed.html">Sosmed</a>
+        </div>
+    </nav>
+
+    <hr />
+
+    <header style="text-align: center;">
+        <img src="img/pp.jpg" width="200" height="200" style="border-radius: 50%;"/>
+            <h1>Erbejee</h1>
+                <p>Selamat datang di website channel Erbejee, disini menyediakan skin dan route 
+                Trainz Simulator Android
+                </p>
+    </header>
+
+    <hr />
+    <script>
+    function toggleMenu() {
+    const menu = document.getElementById('navMenu');
+    menu.classList.toggle('active');
+    }
+    
+    // Fade-in saat halaman selesai dimuat
+    window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+    });
+    
+    // Fade-out saat link diklik
+    document.querySelectorAll('a[href]').forEach(link => {
+    if (link.getAttribute('href').startsWith('#')) return;
+    link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const href = this.getAttribute('href');
+    document.body.classList.remove('loaded');
+    setTimeout(() => {
+    window.location.href = href;
+    }, 300);
+    });
+    });
+    
+    window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    document.body.classList.add('loaded');
+    loader.style.opacity = 0;
+    setTimeout(() => loader.style.display = 'none', 300);
+    });
+    
+    document.querySelectorAll('a[href]').forEach(link => {
+    if (link.getAttribute('href').startsWith('#')) return;
+    link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const href = this.getAttribute('href');
+    document.body.classList.remove('loaded');
+    setTimeout(() => {
+    window.location.href = href;
+    }, 300);
+    });
+    });
+    </script>
+</body>
+
+</html>
