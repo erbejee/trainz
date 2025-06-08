@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #1f1c2c, #928dab);
+        color: #fff;
+        padding-bottom: 2rem;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(10px);
+        z-index: 100;
+        color: white;
+    }
+
+    .navbar .brand {
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+
+    .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+
+    .menu {
+        display: flex;
+        gap: 2rem;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .menu.active {
+        max-height: 300px;
+        opacity: 1;
+        padding: 1rem;
+    }
+}
+
+    h2 {
+        text-align: center;
+        margin-top: 2rem;
+        color: #ffe;
+    }
+
+    .galeri {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .galeri img {
+        width: 100%;
+        border-radius: 0.75rem;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease;
+    }
+
+    .galeri img:hover {
+        transform: scale(1.05);
+    }
+
+    p {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    a {
+        color: #ffcc70;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: #ffdcae;
+    }
+
+    hr {
+        width: 80%;
+        border: none;
+        border-top: 2px solid rgba(255,255,255,0.2);
+        margin: 2rem auto;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erbejee Trainz</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<div id="loader">
+    <div class="spinner"></div>
+</div>
+
+    <nav class="navbar">
+        <div class="brand">Erbejee Trainz</div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <div class="menu" id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="skin.html">Skin</a>
+            <a href="route.html">Route</a>
+            <a href="sosmed.html">Sosmed</a>
+        </div>
+    </nav>
+
+    <hr />
+    <h2>Rute</h2>
+<div class="galeri">
+    <img src="img/r1.jpg" alt="gambar1" />
+    <img src="img/r2.jpg" alt="gambar2" />
+    <img src="img/r3.jpg" alt="gambar3" />
+    <img src="img/r4.jpg" alt="gambar4" />
+    <img src="img/r5.jpg" alt="gambar5" />
+</div>
+<p><a href="https://sfl.gl/xvXA060q">Rute Area Fiksi</a></p>
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('navMenu');
+        menu.classList.toggle('active');
+    }
+    window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+    });
+    
+    // Fade-out saat link diklik
+    document.querySelectorAll('a[href]').forEach(link => {
+    if (link.getAttribute('href').startsWith('#')) return;
+    link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const href = this.getAttribute('href');
+    document.body.classList.remove('loaded');
+    setTimeout(() => {
+    window.location.href = href;
+    }, 300);
+    });
+    });
+    
+   
+    window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    document.body.classList.add('loaded');
+    loader.style.opacity = 0;
+    setTimeout(() => loader.style.display = 'none', 300);
+    });
+    
+    document.querySelectorAll('a[href]').forEach(link => {
+    if (link.getAttribute('href').startsWith('#')) return;
+    link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const href = this.getAttribute('href');
+    document.body.classList.remove('loaded');
+    setTimeout(() => {
+    window.location.href = href;
+    }, 300);
+    });
+    });
+    </script>
+</body>
+</html>
