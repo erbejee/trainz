@@ -236,6 +236,6 @@ hr {
     }
 
     .has-submenu > a::after {
-         content: ' ▾';
+         content: ' ';
   }
 }
