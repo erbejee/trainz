@@ -13,7 +13,7 @@ body {
     color: #fff;
 }
 
-/* Page Fade Transition */
+
 body {
     opacity: 0;
     transition: opacity 0.5s ease;
@@ -239,3 +239,36 @@ hr {
          content: ' ';
   }
 }
+
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem 1rem;
+    font-size: 14px;
+    color: rgba(255,255,255, 0.4);
+    }
+
+footer .credit {
+    color: rgba(255,255,255, 0.6);
+    margin-bottom: 1rem;
+    }
+
+footer .credit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+    }
+
+footer .credit-list li {
+    margin: 0.3rem 0;
+    }
+
+.credit-list a {
+    text-decoration: none;
+    color: rgba(255,255,255, 0.6);
+    transition: color 0.2sec ease;
+    }
+
+.credit-list a:hover {
+    color: #ffcc70;
+    }
