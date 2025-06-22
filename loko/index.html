@@ -10,7 +10,6 @@
     }
 
     .navbar {
-    .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,8 +27,7 @@
     font-weight: 600;
     font-size: 1.2rem;
     }
-    
-    /* Hamburger */
+   
     .menu-toggle {
     display: none;
     font-size: 1.8rem;
@@ -40,7 +38,6 @@
     z-index: 1001;
     }
     
-    /* Menu */
     .menu {
     display: flex;
     gap: 2rem;
@@ -59,7 +56,6 @@
     color: #ffcc70;
     }
     
-    /* Responsive Overlay Menu */
     @media (max-width: 768px) {
     .menu-toggle {
     display: block;
@@ -137,36 +133,6 @@
             border-top: 2px solid rgba(255,255,255,0.2);
             margin: 2rem auto;
         }
-
-        .has-submenu {
-  position: relative;
-}
-
-.submenu {
-  display: none;
-  position: absolute;
-  left: 100%;
-  top: 0;
-  background-color: #111;
-  padding: 10px;
-  border-radius: 10px;
-  z-index: 10000;
-}
-
-.has-submenu:hover .submenu {
-  display: block;
-}
-
-.submenu a {
-  display: block;
-  color: white;
-  text-decoration: none;
-  padding: 5px 10px;
-}
-
-.submenu a:hover {
-  color: #ffcc70;
-}
 </style>
 <head>
     <meta charset="UTF-8">
@@ -200,6 +166,7 @@
             <a href="/trainz/sosmed/">Sosmed</a>
           </div>
     </nav>
+
 
     <hr />
     <h2>Skin Loko CC201</h2>
@@ -239,6 +206,10 @@
             <a href="https://sfl.gl/Ia8ZiQ">CC206 13 46 SDT dempul</a>
         </div>
     </div>
+    <hr />
+    <footer style="text-align: center;">
+    <p>Copyright &copy; 2025 Erbejee.</p>
+    </footer>
     <script>
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
@@ -281,5 +252,3 @@
         });
         });
     </script>
-</body>
-</html>
