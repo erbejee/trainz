@@ -147,6 +147,36 @@
     @keyframes spin {
     to { transform: rotate(360deg); }
     }
+
+             .has-submenu {
+  position: relative;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: #111;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 10000;
+}
+
+.has-submenu:hover .submenu {
+  display: block;
+}
+
+.submenu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.submenu a:hover {
+  color: #ffcc70;
+}
 </style>
 
 <head>
@@ -166,12 +196,20 @@
     <nav class="navbar">
         <div class="brand">Erbejee Trainz</div>
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-                <div class="menu" id="navMenu">
-                    <a href="/trainz">Home</a>
-                    <a href="/trainz/skin">Skin</a>
-                    <a href="/trainz/route">Route</a>
-                    <a href="/trainz/sosmed">Sosmed</a>
-        </div>
+               <div class="menu" id="navMenu">
+            <a href="/trainz/">Home</a>
+          
+            <div class="has-submenu">
+              <a href="#">Skin ▾</a>
+              <div class="submenu">
+                <a href="/trainz/loko/">Loko</a>
+                <a href="/trainz/consist/">Consist</a>
+              </div>
+            </div>
+          
+            <a href="/trainz/route/">Route</a>
+            <a href="/trainz/sosmed/">Sosmed</a>
+          </div>
     </nav>
 
    
