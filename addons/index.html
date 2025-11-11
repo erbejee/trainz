@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <style>
@@ -101,25 +102,41 @@
         color: #ffe;
     }
 
-    .galeri {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
-        padding: 1rem 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+    .skin-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .galeri img {
-        width: 100%;
-        border-radius: 0.75rem;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-        transition: transform 0.3s ease;
-    }
+        .skin-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
 
-    .galeri img:hover {
-        transform: scale(1.05);
-    }
+        .skin-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .skin-item img {
+            width: 100%;
+            border-radius: 0.5rem;
+            object-fit: cover;
+        }
+
+        .skin-item a {
+            color: #ffcc70;
+            text-decoration: none;
+            display: block;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
 
     p {
         text-align: center;
@@ -257,6 +274,7 @@
     </script>
 </body>
 </html>
+
 
 
 
