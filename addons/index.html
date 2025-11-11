@@ -9,6 +9,13 @@
         padding-bottom: 2rem;
     }
 
+    body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, 135deg, #1f1c2c, #928dab); /* gradient yg kamu pakai */
+    }
+
     .navbar {
     display: flex;
     justify-content: space-between;
@@ -88,54 +95,54 @@
     }
     }
 
-        h2 {
-            text-align: center;
-            margin-top: 2rem;
-            color: #ffe;
-        }
+    h2 {
+        text-align: center;
+        margin-top: 2rem;
+        color: #ffe;
+    }
 
-        .skin-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            padding: 1rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .galeri {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
-        .skin-item {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 1rem;
-            padding: 1rem;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-        }
+    .galeri img {
+        width: 100%;
+        border-radius: 0.75rem;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease;
+    }
 
-        .skin-item:hover {
-            transform: translateY(-5px);
-        }
+    .galeri img:hover {
+        transform: scale(1.05);
+    }
 
-        .skin-item img {
-            width: 100%;
-            border-radius: 0.5rem;
-            object-fit: cover;
-        }
+    p {
+        text-align: center;
+        margin-top: 2rem;
+    }
 
-        .skin-item a {
-            color: #ffcc70;
-            text-decoration: none;
-            display: block;
-            margin-top: 0.5rem;
-            font-weight: 500;
-        }
+    a {
+        color: #ffcc70;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
 
-        hr {
-            width: 80%;
-            border: none;
-            border-top: 2px solid rgba(255,255,255,0.2);
-            margin: 2rem auto;
-        }
+    a:hover {
+        color: #ffdcae;
+    }
+
+    hr {
+        width: 80%;
+        border: none;
+        border-top: 2px solid rgba(255,255,255,0.2);
+        margin: 2rem auto;
+    }
 </style>
 <head>
     <meta charset="UTF-8">
@@ -154,24 +161,23 @@
     <nav class="navbar">
         <div class="brand">Erbejee Trainz</div>
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-        <div class="menu" id="navMenu">
-            <a href="/trainz/">Home</a>
-          
-            <div class="has-submenu">
-              <a href="#">Skin</a>
-              <div class="submenu">
-                <a href="/trainz/loko/">Loko</a>
-                <a href="/trainz/consist/">Consist</a>
-              </div>
-            </div>
-          
-            <a href="/trainz/addons/">Addons</a>
-            <a href="/trainz/route/">Route</a>
-            <a href="/trainz/sosmed/">Sosmed</a>
-            <a href="/trainz/tutor/">Tutorial</a>
-          </div>
-    </nav>
+<div class="menu" id="navMenu">
+  <a href="/trainz/">Home</a>
 
+  <div class="has-submenu">
+    <a href="#">Skin</a>
+    <div class="submenu">
+      <a href="/trainz/loko/">Loko</a>
+      <a href="/trainz/consist">Consist</a>
+    </div>
+  </div>
+
+  <a href="/trainz/addons/">Addons</a>       
+  <a href="/trainz/route/">Route</a>
+  <a href="/trainz/sosmed/">Sosmed</a>
+  <a href="/trainz/tutor/">Tutorial</a>
+</div>
+    </nav>
 
     <hr />
     <h2>Addons</h2>
@@ -190,49 +196,68 @@
     <footer>
     <p class="copyright">Copyright © 2025 Erbejee.</p>
 </footer>
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('navMenu');
-            menu.classList.toggle('active');
-        }
-        
-        window.addEventListener('load', () => {
-        document.body.classList.add('loaded');
-        });
-        
-        
-        document.querySelectorAll('a[href]').forEach(link => {
-        if (link.getAttribute('href').startsWith('#')) return;
-        link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const href = this.getAttribute('href');
-        document.body.classList.remove('loaded');
-        setTimeout(() => {
-        window.location.href = href;
-        }, 300);
-        });
-        });
-        
-        window.addEventListener('load', () => {
-        const loader = document.getElementById('loader');
-        document.body.classList.add('loaded');
-        loader.style.opacity = 0;
-        setTimeout(() => loader.style.display = 'none', 300);
-        });
-        
-        document.querySelectorAll('a[href]').forEach(link => {
-        if (link.getAttribute('href').startsWith('#')) return;
-        link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const href = this.getAttribute('href');
-        document.body.classList.remove('loaded');
-        setTimeout(() => {
-        window.location.href = href;
-        }, 300);
-        });
-        });
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('navMenu');
+        menu.classList.toggle('active');
+    }
+    window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+    });
+    
+    // Fade-out saat link diklik
+    document.querySelectorAll('a[href]').forEach(link => {
+    if (link.getAttribute('href').startsWith('#')) return;
+    link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const href = this.getAttribute('href');
+    document.body.classList.remove('loaded');
+    setTimeout(() => {
+    window.location.href = href;
+    }, 300);
+    });
+    });
+    
+   
+    window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    document.body.classList.add('loaded');
+    loader.style.opacity = 0;
+    setTimeout(() => loader.style.display = 'none', 300);
+    });
+    
+    document.querySelectorAll('a[href]').forEach(link => {
+    if (link.getAttribute('href').startsWith('#')) return;
+    link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const href = this.getAttribute('href');
+    document.body.classList.remove('loaded');
+    setTimeout(() => {
+    window.location.href = href;
+    }, 300);
+    });
+    });
+
+    document.querySelectorAll('.has-submenu > a').forEach(item => {
+  item.addEventListener('click', function (e) {
+    const parent = this.parentElement;
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+
+      // Tutup semua submenu lain
+      document.querySelectorAll('.has-submenu').forEach(el => {
+        if (el !== parent) el.classList.remove('active');
+      });
+
+      // Toggle submenu saat ini
+      parent.classList.toggle('active');
+    }
+  });
+});
     </script>
 </body>
-
 </html>
+
+
+
 
